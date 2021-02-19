@@ -10,7 +10,7 @@
 
 # Iris Web Framework <a href="README_GR.md"><img width="20px" src="https://iris-go.com/images/flag-greece.svg" /></a> <a href="README_FR.md"><img width="20px" src="https://iris-go.com/images/flag-france.svg" /></a> <a href="README_ZH.md"><img width="20px" src="https://iris-go.com/images/flag-china.svg" /></a> <a href="README_ES.md"><img width="20px" src="https://iris-go.com/images/flag-spain.png" /></a> <a href="README_FA.md"><img width="20px" src="https://iris-go.com/images/flag-iran.svg" /></a> <a href="README_RU.md"><img width="20px" src="https://iris-go.com/images/flag-russia.svg" /></a> <a href="README_KO.md"><img width="20px" src="https://iris-go.com/images/flag-south-korea.svg?v=12" /></a>
 
-[![build status](https://img.shields.io/travis/kataras/iris/master.svg?style=for-the-badge&logo=travis)](https://travis-ci.org/kataras/iris) [![view examples](https://img.shields.io/badge/examples%20-253-a83adf.svg?style=for-the-badge&logo=go)](https://github.com/kataras/iris/tree/master/_examples) [![chat](https://img.shields.io/gitter/room/iris_go/community.svg?color=cc2b5e&logo=gitter&style=for-the-badge)](https://gitter.im/iris_go/community) <!--[![FOSSA Status](https://img.shields.io/badge/LICENSE%20SCAN-PASSING❤️-CD2956?style=for-the-badge&logo=fossa)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkataras%2Firis?ref=badge_shield)--> [![donate](https://img.shields.io/badge/support-Iris-blue.svg?style=for-the-badge&logo=paypal)](https://iris-go.com/donate) <!--[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=for-the-badge)](https://goreportcard.com/report/github.com/kataras/iris)--><!--[![godocs](https://img.shields.io/badge/go-%20docs-488AC7.svg?style=for-the-badge)](https://pkg.go.dev/github.com/kataras/iris/v12@v12.2.0)--> <!-- [![release](https://img.shields.io/badge/release%20-v12.0-0077b3.svg?style=for-the-badge)](https://github.com/kataras/iris/releases) -->
+[![build status](https://img.shields.io/github/workflow/status/kataras/iris/CI/master?style=for-the-badge)](https://github.com/kataras/iris/actions) [![view examples](https://img.shields.io/badge/examples%20-253-a83adf.svg?style=for-the-badge&logo=go)](https://github.com/kataras/iris/tree/master/_examples) [![chat](https://img.shields.io/gitter/room/iris_go/community.svg?color=cc2b5e&logo=gitter&style=for-the-badge)](https://gitter.im/iris_go/community) <!--[![FOSSA Status](https://img.shields.io/badge/LICENSE%20SCAN-PASSING❤️-CD2956?style=for-the-badge&logo=fossa)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkataras%2Firis?ref=badge_shield)--> [![donate](https://img.shields.io/badge/support-Iris-blue.svg?style=for-the-badge&logo=paypal)](https://iris-go.com/donate) <!--[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=for-the-badge)](https://goreportcard.com/report/github.com/kataras/iris)--><!--[![godocs](https://img.shields.io/badge/go-%20docs-488AC7.svg?style=for-the-badge)](https://pkg.go.dev/github.com/kataras/iris/v12@v12.2.0)--> <!-- [![release](https://img.shields.io/badge/release%20-v12.0-0077b3.svg?style=for-the-badge)](https://github.com/kataras/iris/releases) -->
 
 <!-- <a href="https://iris-go.com"> <img align="right" src="https://iris-go.com/images/logo-w169.png"></a> -->
 
@@ -135,6 +135,8 @@ With your help, we can improve Open Source web development for everyone!
 > Donations from **China** are now accepted!
 
 <p>
+  <a href="https://github.com/baoch254"><img src="https://avatars1.githubusercontent.com/u/74555344?v=4" alt ="CAO HOAI BAO" title="baoch254" with="75" style="width:75px;max-width:75px;height:75px" height="75" /></a>
+  <a href="https://github.com/hdezoscar93"><img src="https://avatars1.githubusercontent.com/u/21270107?v=4" alt ="Oscar Hernandez" title="hdezoscar93" with="75" style="width:75px;max-width:75px;height:75px" height="75" /></a>
   <a href="https://github.com/blackHoleNgc1277"><img src="https://avatars1.githubusercontent.com/u/41342763?v=4" alt ="Gerard Lancea" title="blackHoleNgc1277" with="75" style="width:75px;max-width:75px;height:75px" height="75" /></a>
   <a href="https://github.com/Neulhan"><img src="https://avatars1.githubusercontent.com/u/52434903?v=4" alt ="neulhan" title="Neulhan" with="75" style="width:75px;max-width:75px;height:75px" height="75" /></a>
   <a href="https://github.com/kana99"><img src="https://avatars1.githubusercontent.com/u/3714069?v=4" alt ="xushiquan" title="kana99" with="75" style="width:75px;max-width:75px;height:75px" height="75" /></a>
@@ -220,11 +222,44 @@ Venkatt Guhesan" title="vguhesan" with="75" style="width:75px;max-width:75px;hei
 
 ## 📖 Learning Iris
 
+### Create a new project
+
 ```sh
-$ mkdir myapp && cd myapp
+$ mkdir myapp
+$ cd myapp
 $ go mod init myapp
 $ go get github.com/kataras/iris/v12@master # or @v12.2.0-alpha2
 ```
+
+<details><summary>Install on existing project</summary>
+
+```sh
+$ cd myapp
+$ go get github.com/kataras/iris/v12@master
+```
+
+</details>
+
+<details><summary>Install with a go.mod file</summary>
+
+```txt
+module myapp
+
+go 1.16
+
+require github.com/kataras/iris/v12 master
+```
+
+**Run**
+
+```sh
+$ go mod download
+$ go run main.go
+# OR just:
+# go run -mod=mod main.go
+```
+
+</details>
 
 ![](https://www.iris-go.com/images/gifs/install-create-iris.gif)
 

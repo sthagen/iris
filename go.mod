@@ -20,8 +20,8 @@ require (
 	github.com/iris-contrib/schema v0.0.6
 	github.com/json-iterator/go v1.1.10
 	github.com/kataras/blocks v0.0.4
-	github.com/kataras/golog v0.1.6
-	github.com/kataras/jwt v0.0.9
+	github.com/kataras/golog v0.1.7
+	github.com/kataras/jwt v0.1.0
 	github.com/kataras/neffos v0.0.18
 	github.com/kataras/pio v0.0.10
 	github.com/kataras/sitemap v0.0.5
@@ -31,16 +31,16 @@ require (
 	github.com/microcosm-cc/bluemonday v1.0.4
 	github.com/russross/blackfriday/v2 v2.1.0
 	github.com/schollz/closestmatch v2.1.0+incompatible
-	github.com/tdewolff/minify/v2 v2.9.11
+	github.com/tdewolff/minify/v2 v2.9.13
 	github.com/vmihailenco/msgpack/v5 v5.2.0
 	github.com/yosssi/ace v0.0.5
 	go.etcd.io/bbolt v1.3.5
-	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
+	golang.org/x/crypto v0.0.0-20210218145215-b8e89b74b9df
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777
-	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
+	golang.org/x/sys v0.0.0-20210218155724-8ebf48af031b
 	golang.org/x/text v0.3.5
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 	google.golang.org/protobuf v1.25.0
-    gopkg.in/ini.v1 v1.62.0
+	gopkg.in/ini.v1 v1.62.0
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )

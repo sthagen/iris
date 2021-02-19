@@ -28,6 +28,48 @@ The codebase for Dependency Injection, Internationalization and localization and
 
 ## Fixes and Improvements
 
+- New `PartyConfigure(relativePath string, partyReg ...PartyConfigurator) Party` helper, registers a children Party like `Party` and `PartyFunc` but instead it accepts a structure value (useful when the api's dependencies amount are too much to pass on a function).
+
+- **New feature:** add the ability to set custom error handlers on path type parameters errors (existing or custom ones). Example Code:
+
+```go
+app.Macros().Get("uuid").HandleError(func(ctx iris.Context, paramIndex int, err error) {
+    ctx.StatusCode(iris.StatusBadRequest)
+
+    param := ctx.Params().GetEntryAt(paramIndex)
+    ctx.JSON(iris.Map{
+        "error":     err.Error(),
+        "message":   "invalid path parameter",
+        "parameter": param.Key,
+        "value":     param.ValueRaw,
+    })
+})
+
+app.Get("/users/{id:uuid}", getUser)
+```
+
+- Improve the performance and fix `:int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64` path type parameters couldn't accept a positive number written with the plus symbol or with a leading zeroes, e.g. `+42` and `021`.
+
+- The `iris.WithEmptyFormError` option is respected on `context.ReadQuery` method too, as requested at [#1727](https://github.com/kataras/iris/issues/1727). [Example comments](https://github.com/kataras/iris/blob/master/_examples/request-body/read-query/main.go) were updated.
+
+- New `httptest.Strict` option setter to enable the `httpexpect.RequireReporter` instead of the default `httpexpect.AssetReporter. Use that to enable complete test failure on the first error. As requested at: [#1722](https://github.com/kataras/iris/issues/1722).
+
+- New `uuid` builtin path parameter type. Example:
+
+```go
+// +------------------------+
+// | {param:uuid}           |
+// +------------------------+
+// UUIDv4 (and v1) path parameter validation.
+
+// http://localhost:8080/user/bb4f33e4-dc08-40d8-9f2b-e8b2bb615c0e -> OK
+// http://localhost:8080/user/dsadsa-invalid-uuid                  -> NOT FOUND
+app.Get("/user/{id:uuid}", func(ctx iris.Context) {
+    id := ctx.Params().Get("id")
+    ctx.WriteString(id)
+})
+```
+
 - New `Configuration.KeepAlive` and `iris.WithKeepAlive(time.Duration) Configurator` added as helpers to start the server using a tcp listener featured with keep-alive.
 
 - New `DirOptions.ShowHidden bool` is added by [@tuhao1020](https://github.com/tuhao1020) at [PR #1717](https://github.com/kataras/iris/pull/1717) to show or hide the hidden files when `ShowList` is set to true.
